@@ -1,0 +1,460 @@
+<!-- https://natsha.me/-
+https://rafaelamaral.dev/ -->
+
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="./styles.css" rel="stylesheet">
+        <link href="./assets/fonts/app.css" rel="stylesheet">
+    </head>
+    <body class="font-primary bg-zinc-100 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-200 font-main min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="w-full flex items-center px-6 py-4 bg-zinc-100 dark:bg-zinc-900">
+            <!-- Name -->
+            <div class="flex-1 flex items-center">
+                <span class="font-primary text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100">
+                    Hou Wai Yip
+                </span>
+            </div>
+            <!-- Navigation Buttons -->
+            <nav class="flex-1 flex justify-center gap-8">
+                <a href="#projects" class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-200 transition-colors">Experience/Projects</a>
+                <a href="#skills" class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-200 transition-colors">Skills</a>
+                <a href="#achievements" class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-200 transition-colors">Achievements</a>
+                <a href="#contact" class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-200 transition-colors">Contact Me</a>
+            </nav>
+            <!-- Empty Right Space -->
+            <div class="flex-1"></div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex flex-col items-center flex-1 ">
+            <!-- Hero Section -->
+            <div class="flex flex-col items-center w-full max-w-xl px-4 pt-13 pb-13">
+                <div class="flex flex-col items-center mb-6">
+                    <h1 class="font-primary text-4xl md:text-5xl font-bold text-center">
+                        Hey, I'm Hou Wai!
+                    </h1>
+                    <div class="flex items-center gap-2 mt-2 group">
+                        <img src="./assets/images/US Flag.png" alt="US Flag" class="w-6 h-6" />
+                        <span class="font-primary text-lg text-zinc-700 group-hover:hidden">Based in America</span>
+                        <span class="font-primary text-lg text-zinc-700 hidden group-hover:inline">U-S-A! U-S-A!</span>
+                    </div>
+                </div>
+                <div class="w-full flex flex-col items-center">
+                    <h2 class="font-primary text-5xl md:text-6xl font-semibold text-center mt-4 mb-2" style="transform: translateX(-8px);">
+                        Aspiring Software
+                    </h2>
+                    <div class="flex items-center gap-4 mb-6" style="transform: translateX(8px);">
+                        <h2 class="font-primary text-5xl md:text-6xl font-bold text-center m-0">
+                            Engineer
+                        </h2>
+                        <button
+                            onclick="window.location.href='mailto:houwai.yip@stonybrook.edu'"
+                            class="bg-transparent text-zinc-700 border-2 border-zinc-700 font-main font-semibold py-1 px-3 rounded shadow transition-all duration-200 ease-in-out flex items-center text-base
+                                hover:text-orange-300 hover:border-orange-300 hover:scale-105"
+                        >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-send mr-2 h-4 w-4 transition-colors duration-200"
+                            >
+                                <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
+                                <path d="m21.854 2.147-10.94 10.939"></path>
+                            </svg>
+                            Contact Me
+                        </button>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center gap-4 mt-2">
+                    <!-- LinkedIn -->
+                    <a target="_blank" rel="noopener noreferrer" class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-sky-600 hover:!fill-sky-800 dark:fill-sky-200 dark:hover:!fill-sky-200" aria-label="LinkedIn link" href="https://www.linkedin.com/in/hou-wai-yip-56ba75312/">
+                        <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8">
+                            <g clip-path="url(#clip0_156_4474)">
+                                <path d="M12.88 0H1.19612C0.557365 0 0 0.459377 0 1.09025V12.8004C0 13.4347 0.557365 14 1.19612 14H12.8765C13.5187 14 14 13.4312 14 12.8004V1.09025C14.0026 0.459377 13.5179 0 12.88 0ZM4.33912 11.6699H2.33362V5.43374H4.33912V11.6699ZM3.4055 4.48611H3.39149C2.74924 4.48611 2.33362 4.00838 2.33362 3.40988C2.33362 2.80088 2.76062 2.3345 3.41687 2.3345C4.07312 2.3345 4.47474 2.79738 4.48874 3.40988C4.48874 4.00838 4.07312 4.48611 3.4055 4.48611ZM11.669 11.6699H9.66349V8.26C9.66349 7.44275 9.37125 6.88536 8.64587 6.88536C8.09112 6.88536 7.76299 7.26075 7.61774 7.62562C7.56349 7.75687 7.54862 7.93536 7.54862 8.11824V11.6699H5.54312V5.43374H7.54862V6.30175C7.84087 5.88612 8.29675 5.28762 9.35725 5.28762C10.6741 5.28762 11.6699 6.15563 11.6699 8.02638L11.669 11.6699Z"></path>
+                            </g>
+                            <defs>
+                                <clipPath id="clip0_156_4474">
+                                    <rect width="14" height="14"></rect>
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </a>
+                    <!-- GitHub -->
+                    <a target="_blank" rel="noopener noreferrer" class="font-main cursor-pointer px-5 text-xl text-zinc-900 hover:text-zinc-500 fill-zinc-600 hover:!fill-zinc-800 dark:fill-zinc-200 dark:hover:!fill-zinc-300" aria-label="Github link" href="https://github.com/hYip6">
+                        <svg width="14" height="14" viewBox="-1 -1 17 17" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                        </svg>
+                    </a>
+                    <!-- Email -->
+                    <a target="_blank" rel="noopener noreferrer"
+                        class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-red-300 hover:!fill-red-400"
+                        aria-label="Email link"
+                        href="mailto:houwai.yip@stonybrook.edu">
+                        <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20017 2.20008C1.20017 2.08963 1.28971 2.00009 1.40017 2.00009H12.6C12.7104 2.00009 12.8 2.08963 12.8 2.20008V3.42924L7.00006 6.32919L1.20017 3.42924V2.20008ZM0.000192479 3.78706C1.69209e-05 3.79542 1.75207e-05 3.80378 0.000192479 3.81212V11.7999C0.000192479 12.5731 0.626982 13.1999 1.40017 13.1999H12.6C13.3731 13.1999 13.9999 12.5731 13.9999 11.7999V3.81212C14.0001 3.80378 14.0001 3.79542 13.9999 3.78706V2.20008C13.9999 1.4269 13.3731 0.80011 12.6 0.80011H1.40017C0.626982 0.80011 0.000192479 1.4269 0.000192479 2.20008V3.78706ZM12.8 4.77086V11.7999C12.8 11.9104 12.7104 11.9999 12.6 11.9999H1.40017C1.28971 11.9999 1.20017 11.9104 1.20017 11.7999V4.77086L6.73174 7.53664C6.90065 7.6211 7.09947 7.6211 7.26838 7.53664L12.8 4.77086Z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <hr class="w-full border-t border-zinc-300 mb-8" />
+            <!-- Experience and Projects Section -->
+            <div class="flex justify-center items-center w-full max-w-xl mx-auto my-8">
+                <div class="flex w-full max-w- border-2 border-zinc-300 rounded-lg overflow-hidden font-semibold">
+                    <a href="#experience" id="experienceTab"
+                        class="flex-1 flex items-center justify-center font-main text-xl md:text-2xl
+                                text-white bg-zinc-700 hover:text-sky-200 transition-colors px-6 py-3
+                                cursor-pointer select-none duration-300 rounded-t">
+                        Experience & Education
+                        </a>
+                    <a href="#projects" id="projectsTab"
+                    class="flex-1 flex items-center justify-center font-main text-xl md:text-2xl
+                            text-zinc-700 bg-zinc-100 hover:text-sky-200 transition-colors px-6 py-3
+                            cursor-pointer select-none duration-300 rounded-t">
+                    Projects
+                    </a>
+                </div>
+            </div>
+            <!-- Experience and Projects Content -->
+            <div class="max-w-2xl mx-auto">
+                <!-- Content -->
+                <div class="bg-transparent text-zinc-700 p-4 rounded-b">
+                        <div id="experienceContent">
+                        <!-- Timeline -->
+                            <div class="border-l border-gray-600 pl-4 space-y-6">
+                                
+                                <!-- Item -->
+                                <div>
+                                <p class="text-xl text-gray-400">Sept. 2024 - May. 2027</p>
+                                <h3 class="font-bold text-2xl">Bachelor of Science in Computer Science</h3>
+                                <p class="italic text-xl">Stony Brook University</p>
+                                <p class="text-xl mt-1">
+                                    Completed coursework in Data Structures, Algorithms, Computer Architecture, Discrete Mathematics.
+                                </p>
+                                </div>
+
+                                <!-- Item -->
+                                <div>
+                                <p class="text-xl text-gray-400">Jul. 2024 – Aug. 2024 </p>
+                                <h3 class="font-bold text-2xl">Software Automation Intern</h3>
+                                <p class="italic text-xl">Precision Gear (Engineering company supplying SpaceX, Rolls-Royce, more) </p>
+                                <p class="text-xl mt-1">
+                                    <li> Developed an automated filing system in Python for efficiently sorting and managing over 1,750 PDF files. Reducing sorting time by 25 percent. </li>
+                                    <li> Effectively managed and organized a comprehensive file system consisting of all companies data.  </li>
+                                    <li> Integrated the filing system with existing company tools and processes, automating data entry and retrieval tasks. </li>
+                                </p>
+                                </div>
+
+                                <!-- Item -->
+                                <div>
+                                <p class="text-xl text-gray-400">Jan. 2018 – Present </p>
+                                <h3 class="font-bold text-2xl">Sneaker E-Commerce Business </h3>
+                                <p class="italic text-xl">Entrepreneur</p>
+                                <p class="text-xl mt-1">
+                                    <li>Developed an inventory management system with integrated front-end and back-end components to efficiently track and manage over 350+ products. </li>
+                                    <li>Committed 7 years to sneaker reselling, completing over 5,000 transactions developing a unique skill set in buying, selling, trading, and investing in sneakers. </li>
+                                </p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div id="projectsContent" class="hidden">
+                        
+                            <div class="border-l border-gray-600 pl-4 space-y-6">
+                                
+                                <!-- Item -->
+                                <div>
+                                    <p class="text-xl text-gray-400">Sept. 2024 - May. 2027</p>
+                                    <h3 class="font-bold text-2xl">Datathon Winner</h3>
+                                    <p class="italic text-xl">Financial Analysis Track - Stony Brook University Datathon</p>
+                                    <p class="text-xl mt-1">
+                                        <span class="text-red-400">FILL</span>
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <p class="text-xl text-gray-400">Sept. 2024 - May. 2027</p>
+                                    <h3 class="font-bold text-2xl">Hackathon Winner</h3>
+                                    <p class="italic text-xl">Stony Brook University 10th Annual Hackathon</p>
+                                    <p class="text-xl mt-1">
+                                        <span class="text-red-400">FILL</span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <script>
+                        const experienceTab = document.getElementById("experienceTab");
+                        const projectsTab = document.getElementById("projectsTab");
+                        const experienceContent = document.getElementById("experienceContent");
+                        const projectsContent = document.getElementById("projectsContent");
+
+                        experienceTab.addEventListener("click", () => {
+                            experienceContent.classList.remove("hidden");
+                            projectsContent.classList.add("hidden");
+
+                            experienceTab.classList.add("bg-zinc-700", "text-white");
+                            experienceTab.classList.remove("bg-zinc-100", "text-gray-400");
+
+                            projectsTab.classList.add("bg-zinc-100", "text-gray-400");
+                            projectsTab.classList.remove("bg-zinc-700", "text-white");
+                        });
+
+                        projectsTab.addEventListener("click", () => {
+                            projectsContent.classList.remove("hidden");
+                            experienceContent.classList.add("hidden");
+
+                            projectsTab.classList.remove("bg-zinc-100", "text-zinc-700");
+                            projectsTab.classList.add("bg-zinc-700", "text-white");
+                            projectsTab.classList.remove("bg-zinc-100", "text-gray-400");
+
+                            experienceTab.classList.add("bg-zinc-100", "text-gray-400");
+                            experienceTab.classList.remove("bg-zinc-700", "text-white");
+                        });
+                    </script>
+            </div>
+
+            <!-- Tech Stack Section -->
+            <div class="max-w-2xl mx-auto my-12">
+                <div class="border-2 border-zinc-300 rounded-lg overflow-hidden">
+                    <div class="bg-zinc-700 text-white text-center text-2xl font-primary font-semibold py-3">
+                    Tech Stack
+                    </div>
+                    <div class="bg-transparent text-zinc-700 p-4 rounded-b space-y-8 ">
+                        <!-- Frontend -->
+                        <div class="relative inline-block">
+                            <h2 class="text-xl font-bold mb-2">Front-End Development:</h2>
+                            <div class="flex gap-4 flex-wrap justify-center">
+                            <!-- HTML Logo -->
+                            <div class="relative inline-block group">
+                                <svg width="45" height="45" viewBox="0 0 124 141.53" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0)">
+                                    <path d="M10.383 126.894L0 0l124 .255-10.979 126.639-50.553 14.638z" fill="#e34f26"/>
+                                    <path d="M62.468 129.277V12.085l51.064.17-9.106 104.851z" fill="#ef652a"/>
+                                    <path d="M99.49 41.362l1.446-15.49H22.383l4.34 47.49h54.213L78.81 93.617l-17.362 4.68-17.617-5.106-.936-12.085H27.319l2.128 24.681 32 8.936 32.255-8.936 4.34-48.17H41.107L39.49 41.362z" fill="#fff"/>
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0">
+                                    <rect width="124" height="141.53"/>
+                                    </clipPath>
+                                </defs>
+                                </svg>
+                                <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                    HTML
+                                </span>
+                            </div>
+                                
+
+                                <!-- CSS Logo -->
+                            <div class="relative inline-block group">
+                                <svg width="45" height="45" viewBox="0 0 124 141.53" xmlns="http://www.w3.org/2000/svg">
+                                    <g clip-path="url(#clip0)">
+                                        <path d="M10.383 126.892L0 0l124 .255-10.979 126.637-50.553 14.638z" fill="#1b73ba" />
+                                        <path d="M62.468 129.275V12.085l51.064.17-9.106 104.85z" fill="#1c88c7" />
+                                        <path d="M100.851 27.064H22.298l2.128 15.318h37.276l-36.68 15.745 2.127 14.808h54.043l-1.958 20.68-18.298 3.575-16.595-4.255-1.277-11.745H27.83l2.042 24.426 32.681 9.106 31.32-9.957 4-47.745H64.765l36.085-14.978z" fill="#fff" />
+                                    </g>
+                                    <defs>
+                                        <clipPath id="clip0">
+                                        <rect width="124" height="141.53" />
+                                        </clipPath>
+                                    </defs>
+                                </svg>
+
+                                <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                    CSS
+                                </span>
+                            </div>
+                                
+
+                                <!-- JavaScript Logo -->
+                                <div class="relative inline-block group">
+                                    <svg width="45" height="45" viewBox="0 0 630 630" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="630" height="630" fill="#f7df1e"/>
+                                        <path d="M423.2 492.19c12.69 20.72 29.2 35.95 58.4 35.95 24.53 0 40.2-12.26 40.2-29.2 0-20.3-16.1-27.49-43.1-39.3l-14.8-6.35c-42.72-18.2-71.1-41-71.1-89.2 0-44.4 33.83-78.2 86.7-78.2 37.64 0 64.7 13.1 84.2 47.4l-46.1 29.6c-10.15-18.2-21.1-25.37-38.1-25.37-17.34 0-28.33 11-28.33 25.37 0 17.76 11 24.95 36.4 35.95l14.8 6.34c50.3 21.57 78.7 43.56 78.7 93 0 53.3-41.87 82.5-98.1 82.5-54.98 0-90.5-26.2-107.88-60.54zm-209.13 5.13c9.3 16.5 17.76 30.45 38.1 30.45 19.45 0 31.72-7.61 31.72-37.2v-201.3h59.2v202.1c0 61.3-35.94 89.2-88.4 89.2-47.4 0-74.85-24.53-88.81-54.075z"/>
+                                    </svg>
+
+                                    <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                        JavaScript
+                                    </span>
+                                </div>
+                                
+
+                                <!-- React Logo -->
+                                <div class="relative inline-block group">
+                                    <svg width="45" height="45" viewBox="175.7 78 490.6 436.9" xmlns="http://www.w3.org/2000/svg">
+                                        <g fill="#61dafb">
+                                            <path d="M666.3 296.5c0-32.5-40.7-63.3-103.1-82.4 14.4-63.6 8-114.2-20.2-130.4-6.5-3.8-14.1-5.6-22.4-5.6v22.3c4.6 0 8.3.9 11.4 2.6 13.6 7.8 19.5 37.5 14.9 75.7-1.1 9.4-2.9 19.3-5.1 29.4-19.6-4.8-41-8.5-63.5-10.9-13.5-18.5-27.5-35.3-41.6-50 32.6-30.3 63.2-46.9 84-46.9v-22.3c-27.5 0-63.5 19.6-99.9 53.6-36.4-33.8-72.4-53.2-99.9-53.2v22.3c20.7 0 51.4 16.5 84 46.6-14 14.7-28 31.4-41.3 49.9-22.6 2.4-44 6.1-63.6 11-2.3-10-4-19.7-5.2-29-4.7-38.2 1.1-67.9 14.6-75.8 3-1.8 6.9-2.6 11.5-2.6v-22.3c-8.4 0-16 1.8-22.6 5.6-28.1 16.2-34.4 66.7-19.9 130.1-62.2 19.2-102.7 49.9-102.7 82.3 0 32.5 40.7 63.3 103.1 82.4-14.4 63.6-8 114.2 20.2 130.4 6.5 3.8 14.1 5.6 22.5 5.6 27.5 0 63.5-19.6 99.9-53.6 36.4 33.8 72.4 53.2 99.9 53.2 8.4 0 16-1.8 22.6-5.6 28.1-16.2 34.4-66.7 19.9-130.1 62-19.1 102.5-49.9 102.5-82.3zm-130.2-66.7c-3.7 12.9-8.3 26.2-13.5 39.5-4.1-8-8.4-16-13.1-24-4.6-8-9.5-15.8-14.4-23.4 14.2 2.1 27.9 4.7 41 7.9zm-45.8 106.5c-7.8 13.5-15.8 26.3-24.1 38.2-14.9 1.3-30 2-45.2 2-15.1 0-30.2-.7-45-1.9-8.3-11.9-16.4-24.6-24.2-38-7.6-13.1-14.5-26.4-20.8-39.8 6.2-13.4 13.2-26.8 20.7-39.9 7.8-13.5 15.8-26.3 24.1-38.2 14.9-1.3 30-2 45.2-2 15.1 0 30.2.7 45 1.9 8.3 11.9 16.4 24.6 24.2 38 7.6 13.1 14.5 26.4 20.8 39.8-6.3 13.4-13.2 26.8-20.7 39.9zm32.3-13c5.4 13.4 10 26.8 13.8 39.8-13.1 3.2-26.9 5.9-41.2 8 4.9-7.7 9.8-15.6 14.4-23.7 4.6-8 8.9-16.1 13-24.1zm-101.4 106.7c-9.3-9.6-18.6-20.3-27.8-32 9 .4 18.2.7 27.5.7 9.4 0 18.7-.2 27.8-.7-9 11.7-18.3 22.4-27.5 32zm-74.4-58.9c-14.2-2.1-27.9-4.7-41-7.9 3.7-12.9 8.3-26.2 13.5-39.5 4.1 8 8.4 16 13.1 24s9.5 15.8 14.4 23.4zm73.9-208.1c9.3 9.6 18.6 20.3 27.8 32-9-.4-18.2-.7-27.5-.7-9.4 0-18.7.2-27.8.7 9-11.7 18.3-22.4 27.5-32zm-74 58.9c-4.9 7.7-9.8 15.6-14.4 23.7-4.6 8-8.9 16-13 24-5.4-13.4-10-26.8-13.8-39.8 13.1-3.1 26.9-5.8 41.2-7.9zm-90.5 125.2c-35.4-15.1-58.3-34.9-58.3-50.6s22.9-35.6 58.3-50.6c8.6-3.7 18-7 27.7-10.1 5.7 19.6 13.2 40 22.5 60.9-9.2 20.8-16.6 41.1-22.2 60.6-9.9-3.1-19.3-6.5-28-10.2zm53.8 142.9c-13.6-7.8-19.5-37.5-14.9-75.7 1.1-9.4 2.9-19.3 5.1-29.4 19.6 4.8 41 8.5 63.5 10.9 13.5 18.5 27.5 35.3 41.6 50-32.6 30.3-63.2 46.9-84 46.9-4.5-.1-8.3-1-11.3-2.7zm237.2-76.2c4.7 38.2-1.1 67.9-14.6 75.8-3 1.8-6.9 2.6-11.5 2.6-20.7 0-51.4-16.5-84-46.6 14-14.7 28-31.4 41.3-49.9 22.6-2.4 44-6.1 63.6-11 2.3 10.1 4.1 19.8 5.2 29.1zm38.5-66.7c-8.6 3.7-18 7-27.7 10.1-5.7-19.6-13.2-40-22.5-60.9 9.2-20.8 16.6-41.1 22.2-60.6 9.9 3.1 19.3 6.5 28.1 10.2 35.4 15.1 58.3 34.9 58.3 50.6-.1 15.7-23 35.6-58.4 50.6z"/>
+                                            <circle cx="420.9" cy="296.5" r="45.7"/>
+                                        </g>
+                                    </svg>
+                                    <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                        React
+                                    </span>
+                                </div>
+                                
+
+                                <!-- Tailwind CSS Logo -->
+                                <div class="relative inline-block group">
+                                    <svg width="45" height="45" viewBox="0 .13 800 480" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M400 .13c-106.63 0-173.27 53.3-199.93 159.89 39.99-53.3 86.64-73.28 139.95-59.96 30.42 7.6 52.16 29.67 76.23 54.09 39.2 39.78 84.57 85.82 183.68 85.82 106.62 0 173.27-53.3 199.92-159.9-39.98 53.3-86.63 73.29-139.95 59.97-30.41-7.6-52.15-29.67-76.22-54.09-39.2-39.78-84.58-85.82-183.68-85.82zm-199.93 239.84c-106.62 0-173.27 53.3-199.92 159.9 39.98-53.3 86.63-73.29 139.95-59.96 30.41 7.61 52.15 29.67 76.22 54.08 39.2 39.78 84.58 85.83 183.68 85.83 106.63 0 173.27-53.3 199.93-159.9-39.99 53.3-86.64 73.29-139.95 59.96-30.42-7.59-52.16-29.67-76.23-54.08-39.2-39.78-84.57-85.83-183.68-85.83z" fill="#06b6d4"/>
+                                    </svg>
+
+                                    <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                        Tailwind
+                                    </span>
+                                </div>
+                                
+
+                            </div>
+                        </div>
+                        <!-- Backend -->
+                        <div>
+                            <h2 class="text-xl font-bold mb-2">Back-End Development:</h2>
+                            <div class="flex gap-4 flex-wrap justify-center">
+                            <!-- Node.js Logo -->
+                            <div class="relative inline-block group">
+                                <svg width="45" height="45" viewBox="0 0 256 282" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">   
+                                    <g fill="#8CC84B">
+                                        <path d="M116.504 3.58c6.962-3.985 16.03-4.003 22.986 0 34.995 19.774 70.001 39.517 104.99 59.303 6.581 3.707 10.983 11.031 10.916 18.614v118.968c.049 7.897-4.788 15.396-11.731 19.019-34.88 19.665-69.742 39.354-104.616 59.019-7.106 4.063-16.356 3.75-23.24-.646-10.457-6.062-20.932-12.094-31.39-18.15-2.137-1.274-4.546-2.288-6.055-4.36 1.334-1.798 3.719-2.022 5.657-2.807 4.365-1.388 8.374-3.616 12.384-5.778 1.014-.694 2.252-.428 3.224.193 8.942 5.127 17.805 10.403 26.777 15.481 1.914 1.105 3.852-.362 5.488-1.274 34.228-19.345 68.498-38.617 102.72-57.968 1.268-.61 1.969-1.956 1.866-3.345.024-39.245.006-78.497.012-117.742.145-1.576-.767-3.025-2.192-3.67-34.759-19.575-69.5-39.18-104.253-58.76a3.621 3.621 0 0 0-4.094-.006C91.2 39.257 56.465 58.88 21.712 78.454c-1.42.646-2.373 2.071-2.204 3.653.006 39.245 0 78.497 0 117.748a3.329 3.329 0 0 0 1.89 3.303c9.274 5.259 18.56 10.481 27.84 15.722 5.228 2.814 11.647 4.486 17.407 2.33 5.083-1.823 8.646-7.01 8.549-12.407.048-39.016-.024-78.038.036-117.048-.127-1.732 1.516-3.163 3.2-3 4.456-.03 8.918-.06 13.374.012 1.86-.042 3.14 1.823 2.91 3.568-.018 39.263.048 78.527-.03 117.79.012 10.464-4.287 21.85-13.966 26.97-11.924 6.177-26.662 4.867-38.442-1.056-10.198-5.09-19.93-11.097-29.947-16.55C5.368 215.886.555 208.357.604 200.466V81.497c-.073-7.74 4.504-15.197 11.29-18.85C46.768 42.966 81.636 23.27 116.504 3.58z"/>
+                                        <path d="M146.928 85.99c15.21-.979 31.493-.58 45.18 6.913 10.597 5.742 16.472 17.793 16.659 29.566-.296 1.588-1.956 2.464-3.472 2.355-4.413-.006-8.827.06-13.24-.03-1.872.072-2.96-1.654-3.195-3.309-1.268-5.633-4.34-11.212-9.642-13.929-8.139-4.075-17.576-3.87-26.451-3.785-6.479.344-13.446.905-18.935 4.715-4.214 2.886-5.494 8.712-3.99 13.404 1.418 3.369 5.307 4.456 8.489 5.458 18.33 4.794 37.754 4.317 55.734 10.626 7.444 2.572 14.726 7.572 17.274 15.366 3.333 10.446 1.872 22.932-5.56 31.318-6.027 6.901-14.805 10.657-23.56 12.697-11.647 2.597-23.734 2.663-35.562 1.51-11.122-1.268-22.696-4.19-31.282-11.768-7.342-6.375-10.928-16.308-10.572-25.895.085-1.619 1.697-2.748 3.248-2.615 4.444-.036 8.888-.048 13.332.006 1.775-.127 3.091 1.407 3.182 3.08.82 5.367 2.837 11 7.517 14.182 9.032 5.827 20.365 5.428 30.707 5.591 8.568-.38 18.186-.495 25.178-6.158 3.689-3.23 4.782-8.634 3.785-13.283-1.08-3.925-5.186-5.754-8.712-6.95-18.095-5.724-37.736-3.647-55.656-10.12-7.275-2.571-14.31-7.432-17.105-14.906-3.9-10.578-2.113-23.662 6.098-31.765 8.006-8.06 19.563-11.164 30.551-12.275z"/>
+                                    </g>
+                                </svg>
+                                <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                    Node.js
+                                </span>
+                            </div>
+                            
+                            <!-- Git Logo -->
+                            <div class="relative inline-block group">
+                                <svg width="45" height="45" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
+                                    <path d="M251.172 116.594L139.4 4.828c-6.433-6.437-16.873-6.437-23.314 0l-23.21 23.21 29.443 29.443c6.842-2.312 14.688-.761 20.142 4.693 5.48 5.489 7.02 13.402 4.652 20.266l28.375 28.376c6.865-2.365 14.786-.835 20.269 4.657 7.663 7.66 7.663 20.075 0 27.74-7.665 7.666-20.08 7.666-27.749 0-5.764-5.77-7.188-14.235-4.27-21.336l-26.462-26.462-.003 69.637a19.82 19.82 0 0 1 5.188 3.71c7.663 7.66 7.663 20.076 0 27.747-7.665 7.662-20.086 7.662-27.74 0-7.663-7.671-7.663-20.086 0-27.746a19.654 19.654 0 0 1 6.421-4.281V94.196a19.378 19.378 0 0 1-6.421-4.281c-5.806-5.798-7.202-14.317-4.227-21.446L81.47 39.442l-76.64 76.635c-6.44 6.443-6.44 16.884 0 23.322l111.774 111.768c6.435 6.438 16.873 6.438 23.316 0l111.251-111.249c6.438-6.44 6.438-16.887 0-23.324" fill="#DE4C36"/>
+                                </svg>
+
+                                <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                    Git
+                                </span>
+                            </div>
+                            
+                            <!-- GitHub Logo -->
+                            <div class="relative inline-block group">
+                                <svg width="45" height="45" viewBox="0 0 256 249" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
+                                    <g fill="#161614">
+                                        <path d="M127.505 0C57.095 0 0 57.085 0 127.505c0 56.336 36.534 104.13 87.196 120.99 6.372 1.18 8.712-2.766 8.712-6.134 0-3.04-.119-13.085-.173-23.739-35.473 7.713-42.958-15.044-42.958-15.044-5.8-14.738-14.157-18.656-14.157-18.656-11.568-7.914.872-7.752.872-7.752 12.804.9 19.546 13.14 19.546 13.14 11.372 19.493 29.828 13.857 37.104 10.6 1.144-8.242 4.449-13.866 8.095-17.05-28.32-3.225-58.092-14.158-58.092-63.014 0-13.92 4.981-25.295 13.138-34.224-1.324-3.212-5.688-16.18 1.235-33.743 0 0 10.707-3.427 35.073 13.07 10.17-2.826 21.078-4.242 31.914-4.29 10.836.048 21.752 1.464 31.942 4.29 24.337-16.497 35.029-13.07 35.029-13.07 6.94 17.563 2.574 30.531 1.25 33.743 8.175 8.929 13.122 20.303 13.122 34.224 0 48.972-29.828 59.756-58.22 62.912 4.573 3.957 8.648 11.717 8.648 23.612 0 17.06-.148 30.791-.148 34.991 0 3.393 2.295 7.369 8.759 6.117 50.634-16.879 87.122-64.656 87.122-120.973C255.009 57.085 197.922 0 127.505 0"/>
+                                        <path d="M47.755 181.634c-.28.633-1.278.823-2.185.389-.925-.416-1.445-1.28-1.145-1.916.275-.652 1.273-.834 2.196-.396.927.415 1.455 1.287 1.134 1.923M54.027 187.23c-.608.564-1.797.302-2.604-.589-.834-.889-.99-2.077-.373-2.65.627-.563 1.78-.3 2.616.59.834.899.996 2.08.36 2.65M58.33 194.39c-.782.543-2.06.034-2.849-1.1-.781-1.133-.781-2.493.017-3.038.792-.545 2.05-.055 2.85 1.07.78 1.153.78 2.513-.019 3.069M65.606 202.683c-.699.77-2.187.564-3.277-.488-1.114-1.028-1.425-2.487-.724-3.258.707-.772 2.204-.555 3.302.488 1.107 1.026 1.445 2.496.7 3.258M75.01 205.483c-.307.998-1.741 1.452-3.185 1.028-1.442-.437-2.386-1.607-2.095-2.616.3-1.005 1.74-1.478 3.195-1.024 1.44.435 2.386 1.596 2.086 2.612M85.714 206.67c.036 1.052-1.189 1.924-2.705 1.943-1.525.033-2.758-.818-2.774-1.852 0-1.062 1.197-1.926 2.721-1.951 1.516-.03 2.758.815 2.758 1.86M96.228 206.267c.182 1.026-.872 2.08-2.377 2.36-1.48.27-2.85-.363-3.039-1.38-.184-1.052.89-2.105 2.367-2.378 1.508-.262 2.857.355 3.049 1.398"/>
+                                    </g>
+                                </svg>
+                                <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                    GitHub
+                                </span>
+                            </div>
+                            
+                            <!-- Python Logo -->
+                            <div class="relative inline-block group">
+                                <svg width="45" height="45" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" >
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M13.016 2C10.819 2 9.038 3.725 9.038 5.852v2.667h6.886v.741H5.978c-2.198 0-3.978 1.725-3.978 3.852v5.778c0 2.128 1.78 3.853 3.978 3.853h2.295v-3.259c0-2.128 1.78-3.853 3.977-3.853h7.344c1.859 0 3.366-1.459 3.366-3.259V5.852c0-2.127-1.781-3.852-3.978-3.852H13.016zM12.098 6.741c.761 0 1.378-.597 1.378-1.333 0-.736-.617-1.333-1.378-1.333-.76 0-1.377.597-1.377 1.333 0 .736.617 1.333 1.377 1.333z" fill="url(#paint0_linear)" />
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.983 30c2.197 0 3.978-1.725 3.978-3.852v-2.667h-6.885v-.741h9.946c2.197 0 3.978-1.725 3.978-3.853v-5.778c0-2.128-1.78-3.853-3.978-3.853h-2.295v3.259c0 2.128-1.78 3.853-3.978 3.853H12.404c-1.859 0-3.366 1.459-3.366 3.259v6.519c0 2.128 1.78 3.853 3.978 3.853h5.978zM19.901 25.259c-.76 0-1.376.597-1.376 1.333 0 .736.616 1.333 1.376 1.333.761 0 1.378-.597 1.378-1.333 0-.736-.617-1.333-1.378-1.333z" fill="url(#paint1_linear)" />
+                                    <defs>
+                                        <linearGradient id="paint0_linear" x1="12.481" y1="2" x2="12.481" y2="22.741" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#327EBD" />
+                                        <stop offset="1" stop-color="#1565A7" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear" x1="19.519" y1="9.259" x2="19.519" y2="30" gradientUnits="userSpaceOnUse">
+                                        <stop stop-color="#FFDA4B" />
+                                        <stop offset="1" stop-color="#F9C600" />
+                                        </linearGradient>
+                                    </defs>
+                                </svg>
+                                <span class="absolute left-1/2 -translate-x-1/2 bottom-full mb-1 hidden group-hover:block bg-black text-white text-sm px-2 py-1 rounded whitespace-nowrap">
+                                    Python
+                                </span>
+                            </div>
+                            
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Achievements Section -->
+            <div class="max-w-6xl mx-auto my-12">
+            <div class="bg-zinc-700 text-white text-center text-3xl font-primary font-semibold py-3 rounded-t-lg">
+                Achievements
+            </div>
+            <!-- Three boxes side by side -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 bg-transparent text-zinc-700 p-8 border-2 border-zinc-300 rounded-b-lg">
+                <!-- Accomplishments -->
+                <div class="border-2 border-zinc-300 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-3xl font-bold mb-6">Accomplishments</h2>
+                <ul class="list-disc list-inside space-y-4 text-xl leading-relaxed">
+                    <li>Stony Brook University Dean’s List (Fall 2024, Spring 2025)</li>
+                    <li>Hooper Hacks Winner – Developed an extension improving reading speed and page accessibility by 30% among 250 participants.</li>
+                    <li>Datathon Winner – Financial Analysis Track <span class="text-red-400">FILL</span></li>
+                </ul>
+                </div>
+                <!-- Certifications -->
+                <div class="border-2 border-zinc-300 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-3xl font-bold mb-6">Certifications</h2>
+                <ul class="list-disc list-inside space-y-4 text-xl leading-relaxed">
+                    <li>Arduino Electronics and Physical Computing Certified</li>
+                    <li>Autodesk AutoCAD Certified User</li>
+                    <li>NOCTI Mechatronics Certified</li>
+                </ul>
+                </div>
+                <!-- Leadership -->
+                <div class="border-2 border-zinc-300 rounded-lg p-6 shadow-md hover:shadow-lg transition-shadow">
+                <h2 class="text-3xl font-bold mb-6">Leadership</h2>
+                <ul class="list-disc list-inside space-y-4 text-xl leading-relaxed">
+                    <li>Boy Scouts of America, Assistant ScoutMaster – Ran a troop of 75+ scouts and contributed 60+ hours to community service projects, including hosting my own service project.</li>
+                    <li>Boy Scouts of America, Eagle Scout – Highest youth rank. 7 years of dedication with 6 years in leadership roles, mentoring younger scouts.</li>
+                </ul>
+                </div>
+            </div>
+            </div>
+
+
+
+            
+        </main>
+        <hr class="w-full border-b border-zinc-300" />
+        <footer class="font-primary w-full flex flex-col items-center bg-transparent py-6">
+            <span class="font-main text-2xl text-zinc-900 dark:text-zinc-200 mb-4">
+                Coded with O(n<sup>n</sup>) <span class="text-red-400">♥</span> by Hou Wai
+            </span>
+            <div class="flex items-center justify-center gap-4">
+                <!-- LinkedIn -->
+                <a target="_blank" rel="noopener noreferrer" class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-sky-600 hover:!fill-sky-800 dark:fill-sky-200 dark:hover:!fill-sky-200" aria-label="LinkedIn link" href="https://www.linkedin.com/in/hou-wai-yip-56ba75312/">
+                    <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8">
+                        <g clip-path="url(#clip0_156_4474)">
+                            <path d="M12.88 0H1.19612C0.557365 0 0 0.459377 0 1.09025V12.8004C0 13.4347 0.557365 14 1.19612 14H12.8765C13.5187 14 14 13.4312 14 12.8004V1.09025C14.0026 0.459377 13.5179 0 12.88 0ZM4.33912 11.6699H2.33362V5.43374H4.33912V11.6699ZM3.4055 4.48611H3.39149C2.74924 4.48611 2.33362 4.00838 2.33362 3.40988C2.33362 2.80088 2.76062 2.3345 3.41687 2.3345C4.07312 2.3345 4.47474 2.79738 4.48874 3.40988C4.48874 4.00838 4.07312 4.48611 3.4055 4.48611ZM11.669 11.6699H9.66349V8.26C9.66349 7.44275 9.37125 6.88536 8.64587 6.88536C8.09112 6.88536 7.76299 7.26075 7.61774 7.62562C7.56349 7.75687 7.54862 7.93536 7.54862 8.11824V11.6699H5.54312V5.43374H7.54862V6.30175C7.84087 5.88612 8.29675 5.28762 9.35725 5.28762C10.6741 5.28762 11.6699 6.15563 11.6699 8.02638L11.669 11.6699Z"></path>
+                        </g>
+                        <defs>
+                            <clipPath id="clip0_156_4474">
+                                <rect width="14" height="14"></rect>
+                            </clipPath>
+                        </defs>
+                    </svg>
+                </a>
+                <!-- GitHub -->
+                <a target="_blank" rel="noopener noreferrer" class="font-main cursor-pointer px-5 text-xl text-zinc-900 hover:text-zinc-500 fill-zinc-600 hover:!fill-zinc-800 dark:fill-zinc-200 dark:hover:!fill-zinc-300" aria-label="Github link" href="https://github.com/hYip6">
+                    <svg width="14" height="14" viewBox="-1 -1 17 17" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                    </svg>
+                </a>
+                <!-- Email -->
+                <a target="_blank" rel="noopener noreferrer"
+                    class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-red-300 hover:!fill-sky-200"
+                    aria-label="Email link"
+                    href="mailto:houwai.yip@stonybrook.edu">
+                    <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20017 2.20008C1.20017 2.08963 1.28971 2.00009 1.40017 2.00009H12.6C12.7104 2.00009 12.8 2.08963 12.8 2.20008V3.42924L7.00006 6.32919L1.20017 3.42924V2.20008ZM0.000192479 3.78706C1.69209e-05 3.79542 1.75207e-05 3.80378 0.000192479 3.81212V11.7999C0.000192479 12.5731 0.626982 13.1999 1.40017 13.1999H12.6C13.3731 13.1999 13.9999 12.5731 13.9999 11.7999V3.81212C14.0001 3.80378 14.0001 3.79542 13.9999 3.78706V2.20008C13.9999 1.4269 13.3731 0.80011 12.6 0.80011H1.40017C0.626982 0.80011 0.000192479 1.4269 0.000192479 2.20008V3.78706ZM12.8 4.77086V11.7999C12.8 11.9104 12.7104 11.9999 12.6 11.9999H1.40017C1.28971 11.9999 1.20017 11.9104 1.20017 11.7999V4.77086L6.73174 7.53664C6.90065 7.6211 7.09947 7.6211 7.26838 7.53664L12.8 4.77086Z"></path>
+                    </svg>
+                </a>
+            </div>
+        </footer>
+    </body>
+</html>
