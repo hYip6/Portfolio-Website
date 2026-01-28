@@ -23,6 +23,27 @@
     <title>Hou Wai Yip - Portfolio</title>
     <link href="./styles.css" rel="stylesheet">
     <link href="./assets/fonts/app.css" rel="stylesheet">
+    <style>
+        .imessage-pop {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            padding: 4px 12px;
+            border-radius: 8px;
+            /* Start slightly rounded */
+            margin: -4px -12px;
+            /* Offset padding */
+        }
+
+        .imessage-pop:hover {
+            background-color: #007AFF;
+            /* iMessage Blue */
+            color: #FFFFFF !important;
+            border-radius: 20px;
+            /* Fully rounded pill shape */
+            transform: scale(1.05);
+            /* Slight pop */
+            text-decoration: none;
+        }
+    </style>
 </head>
 
 
@@ -32,23 +53,23 @@
         class="sticky top-0 z-50 w-full flex items-center flex-nowrap px-4 sm:px-6 py-3 bg-zinc-100/90 dark:bg-zinc-900/90 backdrop-blur shadow-md dark:shadow-zinc-900">
         <!-- Name -->
         <div class="flex-1 min-w-0 flex items-center">
-            <span
-                class="font-primary text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100 whitespace-nowrap">
+            <h1
+                class="font-primary text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 dark:text-zinc-100 whitespace-nowrap imessage-pop cursor-default">
                 Hou Wai Yip
-            </span>
+            </h1>
         </div>
         <!-- Navigation Buttons -->
         <nav
             class="hidden md:flex font-light min-w-0 flex-2 justify-center gap-4 flex-nowrap overflow-x-auto text-base lg:text-lg sm:font-thin max-w-full px-2">
             <a href="#experienceContent"
-                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors whitespace-nowrap">Experience/Projects</a>
+                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors whitespace-nowrap">Experience/Projects</a>
             <a href="#skills"
-                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors whitespace-nowrap">Tech
+                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors whitespace-nowrap">Tech
                 Stack</a>
             <a href="#achievements"
-                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors whitespace-nowrap">Achievements</a>
+                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors whitespace-nowrap">Achievements</a>
             <a href="#contact"
-                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors whitespace-nowrap">Contact
+                class="font-main text-lg text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors whitespace-nowrap">Contact
                 Me</a>
         </nav>
         <!-- Light/Dark Mode -->
@@ -88,14 +109,14 @@
         class="md:hidden hidden w-full bg-zinc-100 dark:bg-zinc-900 border-b border-zinc-200 dark:border-zinc-800 px-4 sm:px-6 py-3">
         <div class="flex flex-col gap-1">
             <a href="#experienceContent"
-                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors">Experience/Projects</a>
+                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">Experience/Projects</a>
             <a href="#skills"
-                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors">Tech
+                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">Tech
                 Stack</a>
             <a href="#achievements"
-                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors">Achievements</a>
+                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">Achievements</a>
             <a href="#contact"
-                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-sky-700 dark:hover:text-sky-300 transition-colors">Contact
+                class="font-main text-base py-2 text-zinc-700 dark:text-zinc-200 hover:text-purple-700 dark:hover:text-purple-300 transition-colors">Contact
                 Me</a>
         </div>
     </nav>
@@ -133,7 +154,7 @@
                         </h2>
                         <button onclick="window.location.href='mailto:houwai.yip@stonybrook.edu'"
                             class="font-primary bg-transparent text-zinc-900 dark:text-zinc-200 border-2 border-zinc-900 dark:border-zinc-200 font-main font-semibold py-2 px-4 rounded shadow transition-all duration-200 ease-in-out flex items-center text-base
-                                    hover:text-orange-300 dark:hover:text-orange-200 hover:border-orange-300 dark:hover:border-orange-200 hover:scale-105">
+                                    hover:text-purple-300 dark:hover:text-purple-200 hover:border-purple-300 dark:hover:border-purple-200 hover:scale-105">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round"
@@ -152,7 +173,8 @@
                 <!-- LinkedIn -->
                 <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hou-wai-yip-56ba75312/"
                     aria-label="LinkedIn link" class="font-main cursor-pointer text-xl text-zinc-900">
-                    <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8 fill-sky-200 hover:fill-sky-300">
+                    <svg width="14" height="14" viewBox="0 0 14 14"
+                        class="w-8 h-8 fill-purple-200 hover:fill-purple-300">
                         <g clip-path="url(#clip0_156_4474)">
                             <path
                                 d="M12.88 0H1.19612C0.557365 0 0 0.459377 0 1.09025V12.8004C0 13.4347 0.557365 14 1.19612 14H12.8765C13.5187 14 14 13.4312 14 12.8004V1.09025C14.0026 0.459377 13.5179 0 12.88 0ZM4.33912 11.6699H2.33362V5.43374H4.33912V11.6699ZM3.4055 4.48611H3.39149C2.74924 4.48611 2.33362 4.00838 2.33362 3.40988C2.33362 2.80088 2.76062 2.3345 3.41687 2.3345C4.07312 2.3345 4.47474 2.79738 4.48874 3.40988C4.48874 4.00838 4.07312 4.48611 3.4055 4.48611ZM11.669 11.6699H9.66349V8.26C9.66349 7.44275 9.37125 6.88536 8.64587 6.88536C8.09112 6.88536 7.76299 7.26075 7.61774 7.62562C7.56349 7.75687 7.54862 7.93536 7.54862 8.11824V11.6699H5.54312V5.43374H7.54862V6.30175C7.84087 5.88612 8.29675 5.28762 9.35725 5.28762C10.6741 5.28762 11.6699 6.15563 11.6699 8.02638L11.669 11.6699Z" />
@@ -166,20 +188,10 @@
                 </a>
 
 
-                <!-- GitHub -->
-                <a target="_blank" rel="noopener noreferrer"
-                    class="font-main cursor-pointer px-5 text-xl text-zinc-900 hover:text-zinc-500 fill-zinc-600 hover:!fill-zinc-800 dark:fill-zinc-200 dark:hover:!fill-zinc-300"
-                    aria-label="Github link" href="https://github.com/hYip6">
-                    <svg width="14" height="14" viewBox="-1 -1 17 17" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                        aria-hidden="true">
-                        <path
-                            d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
-                        </path>
-                    </svg>
-                </a>
+
                 <!-- Email -->
                 <a target="_blank" rel="noopener noreferrer"
-                    class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-red-300 hover:!fill-red-400"
+                    class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-purple-300 hover:!fill-purple-400"
                     aria-label="Email link" href="mailto:houwai.yip@stonybrook.edu">
                     <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                         aria-hidden="true">
@@ -235,7 +247,10 @@
                             <!-- Item -->
                             <div class="mt-4">
                                 <p class="text-xl text-zinc-400 dark:text-zinc-500">Oct. 2025 – Present</p>
-                                <h3 class="font-bold text-2xl text-zinc-900 dark:text-zinc-100">Google Software
+                                <h3 class="font-bold text-2xl text-zinc-900 dark:text-zinc-100"><span
+                                        class="text-[#4285F4]">G</span><span class="text-[#EA4335]">o</span><span
+                                        class="text-[#FBBC05]">o</span><span class="text-[#4285F4]">g</span><span
+                                        class="text-[#34A853]">l</span><span class="text-[#EA4335]">e</span> Software
                                     Engineering Program — New York City, NY</h3>
                                 <ul class="list-disc ml-6 text-xl mt-1">
                                     <li>Intensive 10-week Google mentorship focused on technical interview preparation
@@ -388,7 +403,9 @@
                         <!-- Item -->
                         <div>
                             <p class="text-xl text-zinc-400 dark:text-zinc-500">Apr. 2025</p>
-                            <h3 class="font-bold text-2xl text-zinc-900 dark:text-zinc-100">Datathon Winner</h3>
+                            <h3
+                                class="font-bold text-xl inline-block px-3 py-1 rounded-lg bg-[#F9E2AF] border-2 border-[#E0C080] text-[#856404]">
+                                Datathon Winner</h3>
                             <p class="italic text-xl text-zinc-700 dark:text-zinc-300">Financial Analysis Track - Stony
                                 Brook University Datathon</p>
                             <ul class="list-disc ml-6 text-xl mt-1">
@@ -416,8 +433,9 @@
                         <!-- Item -->
                         <div>
                             <p class="text-xl text-zinc-400 dark:text-zinc-500">Mar. 2025</p>
-                            <h3 class="font-bold text-2xl text-zinc-900 dark:text-zinc-100"> Grace Hopper Hackathon
-                                Winner</h3>
+                            <h3
+                                class="font-bold text-xl inline-block px-3 py-1 rounded-lg bg-[#F9E2AF] border-2 border-[#E0C080] text-[#856404]">
+                                Grace Hopper Hackathon Winner</h3>
                             <p class="italic text-xl text-zinc-700 dark:text-zinc-300">Stony Brook University 10th
                                 Annual Grace Hooper Hackathon Winner</p>
                             <ul class="list-disc ml-6 text-xl mt-1">
@@ -679,7 +697,7 @@
             <!-- LinkedIn -->
             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/hou-wai-yip-56ba75312/"
                 aria-label="LinkedIn link" class="font-main cursor-pointer text-xl text-zinc-900">
-                <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8 fill-sky-200 hover:fill-sky-300">
+                <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8 fill-purple-200 hover:fill-purple-300">
                     <g clip-path="url(#clip0_156_4474)">
                         <path
                             d="M12.88 0H1.19612C0.557365 0 0 0.459377 0 1.09025V12.8004C0 13.4347 0.557365 14 1.19612 14H12.8765C13.5187 14 14 13.4312 14 12.8004V1.09025C14.0026 0.459377 13.5179 0 12.88 0ZM4.33912 11.6699H2.33362V5.43374H4.33912V11.6699ZM3.4055 4.48611H3.39149C2.74924 4.48611 2.33362 4.00838 2.33362 3.40988C2.33362 2.80088 2.76062 2.3345 3.41687 2.3345C4.07312 2.3345 4.47474 2.79738 4.48874 3.40988C4.48874 4.00838 4.07312 4.48611 3.4055 4.48611ZM11.669 11.6699H9.66349V8.26C9.66349 7.44275 9.37125 6.88536 8.64587 6.88536C8.09112 6.88536 7.76299 7.26075 7.61774 7.62562C7.56349 7.75687 7.54862 7.93536 7.54862 8.11824V11.6699H5.54312V5.43374H7.54862V6.30175C7.84087 5.88612 8.29675 5.28762 9.35725 5.28762C10.6741 5.28762 11.6699 6.15563 11.6699 8.02638L11.669 11.6699Z" />
@@ -691,20 +709,10 @@
                     </defs>
                 </svg>
             </a>
-            <!-- GitHub -->
-            <a target="_blank" rel="noopener noreferrer"
-                class="font-main cursor-pointer px-5 text-xl text-zinc-900 hover:text-zinc-500 fill-zinc-600 hover:!fill-zinc-800 dark:fill-zinc-200 dark:hover:!fill-zinc-300"
-                aria-label="Github link" href="https://github.com/hYip6">
-                <svg width="14" height="14" viewBox="-1 -1 17 17" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true">
-                    <path
-                        d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
-                    </path>
-                </svg>
-            </a>
+
             <!-- Email -->
             <a target="_blank" rel="noopener noreferrer"
-                class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-red-300 hover:!fill-sky-200"
+                class="font-main cursor-pointer text-xl text-zinc-900 hover:text-zinc-500 fill-purple-300 hover:!fill-purple-200"
                 aria-label="Email link" href="mailto:houwai.yip@stonybrook.edu">
                 <svg width="14" height="14" viewBox="0 0 14 14" class="w-8 h-8" xmlns="http://www.w3.org/2000/svg"
                     aria-hidden="true">
