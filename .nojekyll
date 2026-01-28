@@ -1,0 +1,11 @@
+
+- [ ] Debug GitHub Pages Deployment <!-- id: 0 -->
+    - [x] Fix nested git repository logic <!-- id: 1 -->
+    - [x] Sync `src` content to root <!-- id: 2 -->
+    - [x] Verify root `index.html` content <!-- id: 3 -->
+    - [x] Verify root `styles.css` content <!-- id: 4 -->
+    - [x] Check git log for successful push <!-- id: 5 -->
+    - [x] Fix any path or content discrepancies <!-- id: 6 -->
+    - [x] Advise user on browser caching <!-- id: 7 -->
+    - [ ] Create `.nojekyll` file to bypass Jekyll build <!-- id: 8 -->
+    - [ ] Force new deployment commit <!-- id: 9 -->
