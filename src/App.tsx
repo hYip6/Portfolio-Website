@@ -279,19 +279,17 @@ export default function App() {
           }}
         >
           <div className="flex items-center gap-4 mb-7">
-            <div
-              className="flex items-center justify-center rounded-full text-white shrink-0"
+            <img
+              src="/assets/images/profile.png"
+              alt="Hou Wai Yip"
+              className="shrink-0 rounded-full object-cover"
               style={{
                 width: 64,
                 height: 64,
-                background: 'var(--ink)',
-                fontSize: '1.05rem',
-                fontWeight: 700,
-                letterSpacing: '0.04em',
+                border: '2px solid var(--border)',
+                boxShadow: '0 0 0 1px rgba(0,0,0,0.04)',
               }}
-            >
-              HY
-            </div>
+            />
             <div>
               <h1
                 style={{
@@ -301,7 +299,7 @@ export default function App() {
                   lineHeight: 1.15,
                   color: 'var(--ink)',
                   margin: 0,
-                  letterSpacing: '-0.01em',
+                  letterSpacing: '0.08em',
                 }}
               >
                 Hou Wai Yip{' '}
@@ -312,6 +310,7 @@ export default function App() {
                     fontStyle: 'italic',
                     color: 'var(--ink-faint)',
                     fontWeight: 400,
+                    letterSpacing: 'normal',
                   }}
                 >
                   (How Why)
