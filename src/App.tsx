@@ -337,7 +337,7 @@ export default function App() {
             </span>
           </nav>
         </div>
-        <div className="hz-handle"><span>How Why</span></div>
+        <div className="hz-handle"><span>KISS — Keep it simple.</span></div>
         <article className="hz-profile-row">
           <figure className="hz-profile-image">
             <DotPortrait src={`${BASE_URL}assets/images/profile.png`} alt="Hou Wai Yip" />
