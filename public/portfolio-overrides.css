@@ -625,16 +625,29 @@
   .hz-quote span.is-swapping{transform:none!important}
 }
 
-/* Minimal hover treatment for the centered header motto. */
-.hz-page .hz-handle span{
-  cursor:default;
-  transition:background-color .2s ease,color .2s ease,box-shadow .2s ease!important;
+/* Minimal underline sweep for the header links. */
+.hz-headline nav a{
+  position:relative;
+  display:inline-block;
+  text-decoration:none!important;
 }
-.hz-page .hz-handle span:hover{
-  background:#111!important;
-  color:#fff!important;
-  box-shadow:0 3px 10px rgba(0,0,0,.1)!important;
+.hz-headline nav a::after{
+  content:"";
+  position:absolute;
+  right:0;
+  bottom:-3px;
+  left:0;
+  height:1px;
+  background:#111;
+  transform:scaleX(0);
+  transform-origin:right center;
+  transition:transform .24s ease;
+}
+.hz-headline nav a:hover::after,
+.hz-headline nav a:focus-visible::after{
+  transform:scaleX(1);
+  transform-origin:left center;
 }
 @media(prefers-reduced-motion:reduce){
-  .hz-page .hz-handle span{transition:none!important}
+  .hz-headline nav a::after{transition:none!important}
 }
