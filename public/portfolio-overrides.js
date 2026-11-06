@@ -57,11 +57,11 @@ function go(){var cards=document.querySelectorAll(".hz-project");if(!cards.lengt
     if(label.dataset.rotatingStatus)return;
     label.dataset.rotatingStatus='true';
     var messages=[
-      '💻 Building useful software',
-      '♟️ Playing chess',
-      '🍳 Learning how to cook',
-      '📺 Watching Silo',
-      '🎧 Listening to Bruno Mars'
+      '\u{1F4BB} Fine-tuning my latest project',
+      '\u265F\uFE0F Blundering pieces in chess',
+      '\u{1F373} Attempting to become a better cook',
+      '\u{1F4FA} Currently watching: Silo',
+      '\u{1F3A7} On repeat: Bruno Mars'
     ];
     var index=0;
     label.textContent=messages[index];

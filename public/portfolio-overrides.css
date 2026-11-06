@@ -613,6 +613,7 @@
 
 /* Rotating top-left status. */
 .hz-quote span{
+  font-family:ui-monospace,"SFMono-Regular",Consolas,"Segoe UI Emoji","Apple Color Emoji","Noto Color Emoji",sans-serif!important;
   transition:opacity .2s ease,transform .2s ease!important;
 }
 .hz-quote span.is-swapping{
