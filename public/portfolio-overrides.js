@@ -62,7 +62,7 @@ function go(){var cards=document.querySelectorAll(".hz-project");if(!cards.lengt
       '\u{1F373} Attempting to become a better cook',
       '\u{1F4FA} Currently watching: Silo',
       '\u{1F3A7} On repeat: Bruno Mars',
-      '\u{1F3C3} Running from my problems (literally)',
+      '\u{1F3C3} Getting my daily cardio in',
       '\u{1F3CB}\uFE0F Lifting heavy things and putting them back down'
     ];
     var index=Math.floor(Math.random()*messages.length);
