@@ -1,12 +1,6 @@
-import { useState, type CSSProperties } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-type Section = 'Experience' | 'Projects'
-
-type Bullet = {
-  label?: string
-  text: string
-}
-
+type Bullet = { label: string; text: string }
 type ExperienceItem = {
   type: string
   role: string
@@ -14,22 +8,22 @@ type ExperienceItem = {
   period: string
   bullets: Bullet[]
   tech?: string
-  note?: string
 }
-
 type Project = {
   name: string
   subtitle: string
   tech: string[]
   description: string
-  bullets?: string[]
+  bullets: string[]
   badge?: string
-  link: string | null
+  video?: string
+  image?: string
 }
 
 const EMAIL = 'houwaiyip06@gmail.com'
 const LINKEDIN = 'https://www.linkedin.com/in/hou-wai-yip-56ba75312/'
 const GITHUB = 'https://github.com/hyip6'
+const BASE_URL = import.meta.env.BASE_URL
 
 const experience: ExperienceItem[] = [
   {
@@ -38,18 +32,9 @@ const experience: ExperienceItem[] = [
     company: 'AT&T',
     period: 'Summer 2026',
     bullets: [
-      {
-        label: 'Data Infrastructure',
-        text: 'Self-taught Databricks from scratch to architect and deploy a real-time anomaly detection pipeline.',
-      },
-      {
-        label: 'Algorithm & Execution',
-        text: 'Evaluated multiple anomaly detection models against internal datasets to implement a production-ready solution capable of processing 100+ billion-row tables with a dynamic severity rating system.',
-      },
-      {
-        label: 'Integration & Scale',
-        text: 'Encapsulated the detection logic into a Model Context Protocol (MCP) server, creating an accessible, real-time data stream for cross-functional teams and external organizations.',
-      },
+      { label: 'Data Infrastructure', text: 'Self-taught Databricks from scratch to architect and deploy a real-time anomaly detection pipeline.' },
+      { label: 'Algorithm & Execution', text: 'Evaluated multiple anomaly detection models against internal datasets to implement a production-ready solution capable of processing 100+ billion-row tables with a dynamic severity rating system.' },
+      { label: 'Integration & Scale', text: 'Encapsulated the detection logic into a Model Context Protocol (MCP) server, creating an accessible, real-time data stream for cross-functional teams and external organizations.' },
     ],
   },
   {
@@ -58,34 +43,19 @@ const experience: ExperienceItem[] = [
     company: 'Google',
     period: 'Fall 2025',
     bullets: [
-      {
-        label: 'Algorithmic Problem Solving',
-        text: 'Conducted 1:1 technical syncs with a Senior Google Software Engineer, analyzing LeetCode-style challenges alongside real-world engineering problems and solutions from production systems.',
-      },
-      {
-        label: 'Code Quality & Scalability',
-        text: 'Received direct code reviews and actionable feedback, focusing on performance optimization, scalable architecture, and clean code principles.',
-      },
-      {
-        label: 'Industry Standards',
-        text: 'Learned production-level software engineering best practices, design patterns, and industry standards from an experienced staff-level engineer.',
-      },
+      { label: 'Algorithmic Problem Solving', text: 'Conducted 1:1 technical syncs with a Senior Google Software Engineer, analyzing LeetCode-style challenges alongside real-world engineering problems and solutions from production systems.' },
+      { label: 'Code Quality & Scalability', text: 'Received direct code reviews and actionable feedback, focusing on performance optimization, scalable architecture, and clean code principles.' },
+      { label: 'Industry Standards', text: 'Learned production-level software engineering best practices, design patterns, and industry standards from an experienced staff-level engineer.' },
     ],
   },
   {
     type: 'Education',
     role: 'B.S. Computer Science',
     company: 'Stony Brook University',
-    period: 'Expected Graduation: Spring 2028',
+    period: 'Expected Spring 2028',
     bullets: [
-      {
-        label: 'Coursework',
-        text: 'Data Structures, Algorithms, System Fundamentals, Discrete Mathematics, Data Analysis, Software Development.',
-      },
-      {
-        label: 'Academic Honors',
-        text: "Dean's List (Fall 2024, Spring 2025, Fall 2025, Spring 2026).",
-      },
+      { label: 'Coursework', text: 'Data Structures, Algorithms, System Fundamentals, Discrete Mathematics, Data Analysis, Software Development.' },
+      { label: 'Academic Honors', text: "Dean's List (Fall 2024, Spring 2025, Fall 2025, Spring 2026)." },
     ],
   },
   {
@@ -94,14 +64,8 @@ const experience: ExperienceItem[] = [
     company: 'Founder & Developer',
     period: '2018 — Present',
     bullets: [
-      {
-        label: 'Business Background',
-        text: 'Built to scale an independent sneaker reselling business that grew from 1 pair to over 1,000 items in inventory, replacing unscalable spreadsheets with a custom software solution.',
-      },
-      {
-        label: 'Deployment & Scale',
-        text: 'Engineered full CRUD operations, advanced search/filtering, and a localized transaction dashboard tracking $6,000+$ transactions, sales metrics, expenses, and net profit.',
-      },
+      { label: 'Business Background', text: 'Built to scale an independent sneaker reselling business that grew from 1 pair to over 1,000 items in inventory, replacing unscalable spreadsheets with a custom software solution.' },
+      { label: 'Deployment & Scale', text: 'Engineered full CRUD operations, advanced search/filtering, and a localized transaction dashboard tracking $6,000+ in transactions, sales metrics, expenses, and net profit.' },
     ],
     tech: 'React · Java · SQLite · Docker',
   },
@@ -111,18 +75,9 @@ const experience: ExperienceItem[] = [
     company: 'Public Library',
     period: '2023 — 2025',
     bullets: [
-      {
-        label: 'Instruction',
-        text: 'Taught core CS principles (OOP, Data Structures) in Python to over 15 students with varying experience levels.',
-      },
-      {
-        label: 'Mentorship',
-        text: 'Guided students through debugging, code reviews, and problem decomposition, cultivating analytical skills.',
-      },
-      {
-        label: 'Curriculum Design',
-        text: 'Developed custom coding projects (e.g., inventory systems) to demonstrate real-world OOP applications.',
-      },
+      { label: 'Instruction', text: 'Taught core CS principles (OOP, Data Structures) in Python to over 15 students with varying experience levels.' },
+      { label: 'Mentorship', text: 'Guided students through debugging, code reviews, and problem decomposition, cultivating analytical skills.' },
+      { label: 'Curriculum Design', text: 'Developed custom coding projects such as inventory systems to demonstrate real-world OOP applications.' },
     ],
     tech: 'Python · NumPy · Pandas',
   },
@@ -132,18 +87,9 @@ const experience: ExperienceItem[] = [
     company: 'Precision Gear',
     period: 'Summer 2024',
     bullets: [
-      {
-        label: 'Process Optimization',
-        text: 'Identified time-consuming manual workflows during an office internship and got management approval to design and deploy automated software solutions.',
-      },
-      {
-        label: 'Python Engineering',
-        text: 'Built a custom Python automation tool that reduced document sorting time by 60% across 1,750+ PDF files while automating data entry into internal company tools.',
-      },
-      {
-        label: 'Time & Efficiency Impact',
-        text: 'Transformed slow, manual record-keeping into a streamlined, high-speed retrieval workflow for the entire team.',
-      },
+      { label: 'Process Optimization', text: 'Identified time-consuming manual workflows and got management approval to design and deploy automated software solutions.' },
+      { label: 'Python Engineering', text: 'Built a custom Python automation tool that reduced document sorting time by 60% across 1,750+ PDF files while automating data entry into internal company tools.' },
+      { label: 'Efficiency Impact', text: 'Transformed slow, manual record-keeping into a streamlined, high-speed retrieval workflow for the entire team.' },
     ],
     tech: 'Python · OS · Automation',
   },
@@ -151,561 +97,402 @@ const experience: ExperienceItem[] = [
 
 const projects: Project[] = [
   {
+    name: 'METAL',
+    subtitle: 'SBU Hacks · Stony Brook University',
+    tech: ['Python', 'FFmpeg', 'Whisper', 'MiniLM', 'NLP', 'Semantic Search'],
+    badge: 'Second Place',
+    video: `${BASE_URL}assets/videos/metal-demo.mp4`,
+    description:
+      'An AI-powered video platform that helps gamers find memorable moments through natural language search and automatically identify highlights from gameplay footage.',
+    bullets: [
+      'Built a semantic video search engine using Whisper transcripts and MiniLM embeddings to retrieve relevant gaming clips with timestamped results.',
+      'Developed an automated highlight detection pipeline using FFmpeg to analyze audio peaks, volume changes, and scene transitions.',
+      'Created an interactive video timeline with suggested highlights, allowing users to preview, adjust, and save their favorite moments.',
+    ],
+  },
+  {
     name: 'Store Signal',
-    subtitle: 'AT&T Intern Innovation Challenge (Patent Pending)',
+    subtitle: 'AT&T Intern Innovation Challenge · Patent Pending',
     badge: 'National Finalist',
     tech: ['Agentic Workflows', 'Python', 'Multi-Agent Systems', 'JSON Pipelines'],
-    description:
-      'Agentic sales intelligence platform that aggregates local customer demographic dasta and surfaces upselling opportunities for AT&T sales representatives.',
+    description: 'An agentic sales intelligence platform that aggregates local customer demographic data and surfaces upselling opportunities for AT&T sales representatives.',
     bullets: [
-      'Architected an agentic workflow with multi-agent orchestration to aggregate and analyze hyper-local customer demographic data.',
-      'Engineered real-time data pipelines to output structured JSON payloads, powering a live analytics dashboard for sales representatives.',
-      'Delivered automated upselling opportunities and regional trend insights to drive contextual customer conversations and boost conversion rates.',
+      'Architected a multi-agent workflow to aggregate and analyze hyper-local customer demographic data.',
+      'Engineered real-time pipelines that output structured JSON payloads to a live analytics dashboard.',
+      'Delivered regional trend insights and contextual upselling opportunities to support customer conversations.',
     ],
-    link: null,
   },
   {
     name: 'Seawolf Course Finder',
     subtitle: 'Course Recommendation Project · Stony Brook University',
     tech: ['Python', 'Flask', 'Scikit-Learn', 'PyTorch', 'BeautifulSoup', 'JavaScript'],
-    description:
-      'AI course recommendation engine that helps students navigate 3,500+ courses at Stony Brook University with high relevance matching.',
+    description: 'An AI course recommendation engine that helps students navigate thousands of Stony Brook University courses with highly relevant matching.',
     bullets: [
-      'Developed a full-stack AI recommendation engine using TF-IDF and cosine similarity, achieving 95%+ relevance for 4,000+ courses.',
-      'Engineered scalable web scraping infrastructure using BeautifulSoup and concurrent processing to extract structured data from university catalogs across 60+ departments.',
+      'Built a full-stack recommendation engine using TF-IDF and cosine similarity, achieving 95%+ relevance across 4,000+ courses.',
+      'Created concurrent web-scraping infrastructure to extract structured catalog data across 60+ departments.',
     ],
-    link: null,
   },
   {
     name: 'Pairs Trading Algorithm',
     subtitle: 'Financial Analysis Track · Stony Brook University Datathon',
     badge: 'Datathon Winner',
     tech: ['Python', 'Pandas', 'Matplotlib', 'NumPy'],
-    description:
-      'Statistical pairs trading strategy that identifies correlated assets and exploits price divergences while managing risk.',
+    description: 'A statistical pairs trading strategy that identifies correlated assets and exploits price divergences while managing risk.',
     bullets: [
-      'Designed and implemented a Python-based pairs trading strategy, applying statistical analysis to identify correlated assets and exploit price divergences.',
-      'Backtested the algorithm on historical datasets, generating positive alpha relative to the S&P 500 while maintaining risk parameters and stability in diverse market conditions.',
+      'Applied statistical analysis to identify correlated assets and capitalize on temporary price divergences.',
+      'Backtested on historical data, generating positive alpha relative to the S&P 500 while maintaining stable risk parameters.',
     ],
-    link: null,
   },
   {
     name: 'Accessibility Extension',
-    subtitle: 'Stony Brook University 10th Annual Grace Hopper Hackathon',
+    subtitle: '10th Annual Grace Hopper Hackathon · Stony Brook University',
     badge: 'Hackathon Winner',
     tech: ['JavaScript', 'HTML', 'CSS', 'Chrome API', 'DOM'],
-    description:
-      'Chrome extension that improves digital reading accessibility for people with dyslexia and ADHD through Bionic Reading Mode.',
+    description: 'A Chrome extension that improves digital reading accessibility for people with dyslexia and ADHD through Bionic Reading Mode.',
     bullets: [
-      'Developed a Chrome extension to enhance digital reading accessibility for individuals with dyslexia and ADHD.',
-      'Implemented Bionic Reading Mode, dynamically bolding parts of words to improve focus and reading speed by 30 percent.',
+      'Dynamically bolded parts of words to improve focus and reading speed by 30 percent.',
       'Optimized DOM manipulation for real-time text transformation without disrupting page layout.',
     ],
-    link: null,
   },
 ]
 
-const companyColor: Record<string, string> = {
-  'AT&T': '#00A8E0',
+function stampTone(badge?: string) {
+  if (!badge) return ''
+  if (/winner/i.test(badge)) return ' is-gold'
+  if (/national finalist/i.test(badge)) return ' is-blue'
+  if (/second place/i.test(badge)) return ' is-silver'
+  return ''
 }
 
-const googleLetters: { char: string; color: string }[] = [
-  { char: 'G', color: '#4285F4' },
-  { char: 'o', color: '#EA4335' },
-  { char: 'o', color: '#FBBC05' },
-  { char: 'g', color: '#4285F4' },
-  { char: 'l', color: '#34A853' },
-  { char: 'e', color: '#EA4335' },
-]
+function DotPortrait({ src, alt }: { src: string; alt: string }) {
+  const monoCanvasRef = useRef<HTMLCanvasElement>(null)
+  const colorCanvasRef = useRef<HTMLCanvasElement>(null)
 
-function CompanyLabel({ company }: { company: string }) {
-  const style: CSSProperties = {
-    display: 'inline-block',
-    fontSize: '0.95rem',
-    fontWeight: 500,
-    marginBottom: '0.9rem',
-  }
+  useEffect(() => {
+    const image = new Image()
+    image.src = src
+    image.onload = () => {
+      const monoCanvas = monoCanvasRef.current
+      const colorCanvas = colorCanvasRef.current
+      if (!monoCanvas || !colorCanvas) return
 
-  if (company === 'Google') {
-    return (
-      <span style={style}>
-        {googleLetters.map((letter, i) => (
-          <span key={`${letter.char}-${i}`} style={{ color: letter.color }}>
-            {letter.char}
-          </span>
-        ))}
-      </span>
-    )
-  }
+      const size = 640
+      const step = 4
+      const sourceCanvas = document.createElement('canvas')
+      const sourceContext = sourceCanvas.getContext('2d', { willReadFrequently: true })
+      const monoContext = monoCanvas.getContext('2d')
+      const colorContext = colorCanvas.getContext('2d')
+      if (!sourceContext || !monoContext || !colorContext) return
+
+      sourceCanvas.width = size
+      sourceCanvas.height = size
+      monoCanvas.width = size
+      monoCanvas.height = size
+      colorCanvas.width = size
+      colorCanvas.height = size
+      const scale = Math.max(size / image.width, size / image.height)
+      const width = image.width * scale
+      const height = image.height * scale
+      const x = (size - width) / 2
+      const y = (size - height) / 2
+
+      sourceContext.drawImage(image, x, y, width, height)
+      const pixels = sourceContext.getImageData(0, 0, size, size)
+
+      for (const context of [monoContext, colorContext]) {
+        context.fillStyle = '#f7f7f7'
+        context.fillRect(0, 0, size, size)
+      }
+
+      for (let py = step / 2; py < size; py += step) {
+        for (let px = step / 2; px < size; px += step) {
+          const offset = (Math.floor(py) * size + Math.floor(px)) * 4
+          const red = pixels.data[offset]
+          const green = pixels.data[offset + 1]
+          const blue = pixels.data[offset + 2]
+          const luminance = red * 0.2126 + green * 0.7152 + blue * 0.0722
+          const radius = 0.42 + (1 - luminance / 255) * step * 0.48
+
+          monoContext.fillStyle = '#111'
+          monoContext.beginPath()
+          monoContext.arc(px, py, radius, 0, Math.PI * 2)
+          monoContext.fill()
+
+          colorContext.fillStyle = `rgb(${red} ${green} ${blue})`
+          colorContext.beginPath()
+          colorContext.arc(px, py, radius, 0, Math.PI * 2)
+          colorContext.fill()
+        }
+      }
+    }
+
+    return () => {
+      image.onload = null
+    }
+  }, [src])
 
   return (
-    <span style={{ ...style, color: companyColor[company] ?? 'var(--ink-muted)' }}>
-      {company}
-    </span>
+    <div className="dot-portrait" role="img" aria-label={alt}>
+      <canvas ref={monoCanvasRef} className="dot-portrait-mono" aria-hidden="true" />
+      <canvas ref={colorCanvasRef} className="dot-portrait-color" aria-hidden="true" />
+    </div>
   )
 }
 
-const linkStyle: CSSProperties = {
-  fontSize: '0.95rem',
-  color: 'var(--ink-muted)',
-  textDecoration: 'none',
-  borderBottom: '1px solid var(--ink-faint)',
-  paddingBottom: 1,
-  transition: 'color 0.15s, border-color 0.15s',
+function ExperienceTimeline() {
+  const [activeIndex, setActiveIndex] = useState(0)
+  const timelineRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    let frame = 0
+    const update = () => {
+      cancelAnimationFrame(frame)
+      frame = requestAnimationFrame(() => {
+        const timeline = timelineRef.current
+        if (!timeline) return
+        const rect = timeline.getBoundingClientRect()
+        const scrollable = Math.max(1, timeline.offsetHeight - window.innerHeight)
+        const progress = Math.min(1, Math.max(0, -rect.top / scrollable))
+        setActiveIndex(Math.min(experience.length - 1, Math.round(progress * (experience.length - 1))))
+      })
+    }
+
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update)
+    return () => {
+      cancelAnimationFrame(frame)
+      window.removeEventListener('scroll', update)
+      window.removeEventListener('resize', update)
+    }
+  }, [])
+
+  const scrollToExperience = (index: number) => {
+    const timeline = timelineRef.current
+    if (!timeline) return
+    const start = window.scrollY + timeline.getBoundingClientRect().top
+    const distance = timeline.offsetHeight - window.innerHeight
+    const target = start + (index / (experience.length - 1)) * distance
+    window.scrollTo({ top: target, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="experience-timeline" ref={timelineRef}>
+      <aside className="timeline-rail">
+        <p>Experience index</p>
+        <ol>
+          {experience.map((job, index) => (
+            <li className={activeIndex === index ? 'is-active' : ''} key={job.role}>
+              <button
+                type="button"
+                onClick={() => scrollToExperience(index)}
+              >
+                <i />
+                <span><strong>{job.company}</strong>{job.period}</span>
+              </button>
+            </li>
+          ))}
+        </ol>
+      </aside>
+
+      <div className="timeline-content">
+        {experience.map((job, index) => (
+          <article
+            className={`timeline-item ${activeIndex === index ? 'is-active' : ''}`}
+            key={`${job.role}-${job.period}`}
+          >
+            <div className="timeline-masthead">
+              <span>The How Why Chronicle</span>
+              <i>Experience archive</i>
+            </div>
+            <p className="hz-card-meta">{job.type} · {job.period}</p>
+            <h3>{job.role}</h3>
+            <p className="timeline-company">{job.company}</p>
+            <div className="timeline-description">
+              {job.bullets.map((bullet) => (
+                <p key={bullet.label}><strong>{bullet.label}.</strong> {bullet.text}</p>
+              ))}
+            </div>
+            {job.tech && <code>{job.tech}</code>}
+          </article>
+        ))}
+      </div>
+    </div>
+  )
 }
 
 export default function App() {
-  const [active, setActive] = useState<Section>('Experience')
-
   return (
-    <div
-      style={{
-        position: 'relative',
-        width: '100%',
-        minHeight: '100vh',
-        overflowX: 'hidden',
-        backgroundColor: '#ffffff',
-      }}
-    >
-      <div className="max-w-2xl mx-auto px-6 py-16" style={{ position: 'relative', zIndex: 1 }}>
-        <header
-          className="mb-12"
-          style={{
-            background:
-              'linear-gradient(180deg, #f4f6f8 0%, #ffffff 100%)',
-            border: '1px solid var(--border)',
-            borderRadius: 10,
-            padding: '1.75rem 1.5rem 1.5rem',
-          }}
-        >
-          <div className="flex items-center gap-4 mb-7">
-            <img
-              src="/assets/images/profile.png"
-              alt="Hou Wai Yip"
-              className="shrink-0 rounded-full object-cover"
-              style={{
-                width: 64,
-                height: 64,
-                border: '2px solid var(--border)',
-                boxShadow: '0 0 0 1px rgba(0,0,0,0.04)',
-              }}
-            />
-            <div>
-              <h1
-                style={{
-                  fontFamily: "'Instrument Serif', Georgia, serif",
-                  fontSize: '2.35rem',
-                  fontWeight: 400,
-                  lineHeight: 1.15,
-                  color: 'var(--ink)',
-                  margin: 0,
-                  letterSpacing: '0.08em',
-                }}
-              >
-                Hou Wai Yip{' '}
-                <span
-                  style={{
-                    fontFamily: "'Source Sans 3', system-ui, sans-serif",
-                    fontSize: '1.05rem',
-                    fontStyle: 'italic',
-                    color: 'var(--ink-faint)',
-                    fontWeight: 400,
-                    letterSpacing: 'normal',
-                  }}
-                >
-                  (How Why)
-                </span>
-              </h1>
-              <p
-                style={{
-                  fontSize: '1.05rem',
-                  color: 'var(--ink-muted)',
-                  marginTop: 6,
-                }}
-              >
-                Software Engineering Intern &nbsp;·&nbsp; CS @ Stony Brook University
-              </p>
-            </div>
-          </div>
-
-          <div
-            style={{
-              borderLeft: '3px solid var(--ink)',
-              paddingLeft: '1.1rem',
-              marginBottom: '1.5rem',
-            }}
-          >
-            <p
-              style={{
-                fontSize: '1.1rem',
-                lineHeight: 1.75,
-                color: 'var(--ink)',
-                margin: '0 0 0.75rem',
-              }}
-            >
-              Software engineering intern and entrepreneur building useful software and turning
-              ideas into real-world results while leveraging agentic tools. Constantly
-              experimenting with new AI models and technologies, driven by curiosity and a
-              commitment to always learning.
+    <div className="hz-page">
+      <header className="hz-header">
+        <div className="hz-headline">
+          <div className="hz-quote"><span>Building: useful software</span><i /></div>
+          <h1>Hou Wai Yip</h1>
+          <nav aria-label="Main navigation">
+            <i />
+            <span>
+              <a href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn</a> —
+              <a href={`mailto:${EMAIL}`}>Email</a> —
+              <a href={GITHUB} target="_blank" rel="noreferrer">GitHub</a>
+            </span>
+          </nav>
+        </div>
+        <div className="hz-handle"><span>How Why</span></div>
+        <article className="hz-profile-row">
+          <figure className="hz-profile-image">
+            <DotPortrait src={`${BASE_URL}assets/images/profile.png`} alt="Hou Wai Yip" />
+          </figure>
+          <div>
+            <p className="hz-bio">
+              I&apos;m Hou Wai <span className="pronunciation">(How Why)</span>, a CS
+              student at Stony Brook University and a software engineering intern who enjoys
+              building things and solving problems through code. I&apos;m always curious and
+              constantly learning, whether it&apos;s through my classes, personal projects,
+              or exploring new technologies on my own.
             </p>
-            <p
-              style={{
-                fontSize: '1.05rem',
-                lineHeight: 1.75,
-                color: 'var(--ink-muted)',
-                margin: 0,
-              }}
-            >
-              When I'm offline, I spend my time researching investing, solving interesting problems,
-              staying physically active, and exploring the outdoors.
+            <p className="hz-bio-small">
+              When I&apos;m not coding, you&apos;ll probably find me researching stocks and
+              investing, tackling interesting problems, staying active, or spending time
+              outdoors.
             </p>
           </div>
+        </article>
+      </header>
 
-          <div className="flex gap-5 flex-wrap">
-            {[
-              { label: 'Email', href: `mailto:${EMAIL}` },
-              { label: 'LinkedIn', href: LINKEDIN },
-              { label: 'GitHub', href: GITHUB },
-            ].map((l) => (
-              <a
-                key={l.label}
-                href={l.href}
-                target={l.label === 'Email' ? undefined : '_blank'}
-                rel={l.label === 'Email' ? undefined : 'noreferrer'}
-                style={linkStyle}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.color = 'var(--accent)'
-                  e.currentTarget.style.borderColor = 'var(--accent)'
+      <main>
+        <section className="hz-section" id="experience">
+          <header className="hz-section-title"><span>⌘</span><h2>Experience</h2></header>
+          <ExperienceTimeline />
+        </section>
+
+        <section className="hz-section" id="projects">
+          <header className="hz-section-title"><span>↗</span><h2>Selected Projects</h2></header>
+          <div className="hz-work">
+            {projects.map((project, index) => (
+              <article
+                className={`hz-project hz-project-${index + 1}${project.video ? ' has-video' : ''}`}
+                key={project.name}
+                onMouseEnter={(event) => {
+                  const video = event.currentTarget.querySelector('video')
+                  if (video) {
+                    video.currentTime = 2
+                    void video.play()
+                  }
                 }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.color = 'var(--ink-muted)'
-                  e.currentTarget.style.borderColor = 'var(--ink-faint)'
+                onMouseLeave={(event) => {
+                  const video = event.currentTarget.querySelector('video')
+                  if (video) {
+                    video.pause()
+                    video.currentTime = 2
+                  }
                 }}
               >
-                {l.label}
-              </a>
-            ))}
-          </div>
-        </header>
-
-        <nav
-          style={{
-            display: 'flex',
-            gap: '1.5rem',
-            borderBottom: '1px solid var(--border)',
-            marginBottom: '2.5rem',
-          }}
-        >
-          {(['Experience', 'Projects'] as Section[]).map((s) => (
-            <button
-              key={s}
-              onClick={() => setActive(s)}
-              style={{
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '0.6rem 0',
-                fontSize: '1rem',
-                fontWeight: active === s ? 700 : 400,
-                color: active === s ? 'var(--ink)' : 'var(--ink-muted)',
-                borderBottom:
-                  active === s ? '2px solid var(--ink)' : '2px solid transparent',
-                marginBottom: -1,
-                transition: 'color 0.15s',
-              }}
-            >
-              {s}
-            </button>
-          ))}
-        </nav>
-
-        <main>
-          {active === 'Experience' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-              {experience.map((job) => (
-                <article key={`${job.type}-${job.role}`}>
-                  <div className="flex items-baseline justify-between mb-1 gap-4">
-                    <span
-                      style={{
-                        fontSize: '0.75rem',
-                        letterSpacing: '0.12em',
-                        textTransform: 'uppercase',
-                        color: 'var(--ink-muted)',
-                        fontWeight: 500,
-                      }}
-                    >
-                      {job.type}
-                    </span>
-                    <span
-                      style={{
-                        fontSize: '0.9rem',
-                        color: 'var(--ink-muted)',
-                        fontVariantNumeric: 'tabular-nums',
-                        textAlign: 'right',
-                      }}
-                    >
-                      {job.period}
-                    </span>
-                  </div>
-
-                  <h2
-                    style={{
-                      fontSize: '1.2rem',
-                      fontWeight: 600,
-                      color: 'var(--ink)',
-                      margin: '0 0 0.25rem',
-                    }}
-                  >
-                    {job.role}
-                  </h2>
-
-                  <CompanyLabel company={job.company} />
-
-                  <ul
-                    style={{
-                      margin: 0,
-                      padding: 0,
-                      listStyle: 'none',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      gap: '0.55rem',
-                    }}
-                  >
-                    {job.bullets.map((b) => (
-                      <li
-                        key={`${b.label ?? ''}-${b.text.slice(0, 24)}`}
-                        style={{
-                          fontSize: '0.98rem',
-                          lineHeight: 1.7,
-                          color: 'var(--ink)',
-                          paddingLeft: '1rem',
-                          position: 'relative',
-                        }}
-                      >
-                        <span
-                          style={{
-                            position: 'absolute',
-                            left: 0,
-                            top: '0.55em',
-                            width: 4,
-                            height: 4,
-                            borderRadius: '50%',
-                            background: 'var(--ink-faint)',
-                            display: 'inline-block',
-                          }}
-                        />
-                        {b.label ? (
-                          <>
-                            <strong style={{ fontWeight: 600 }}>{b.label}:</strong>{' '}
-                            <span style={{ color: 'var(--ink-muted)' }}>{b.text}</span>
-                          </>
-                        ) : (
-                          <span style={{ color: 'var(--ink-muted)' }}>{b.text}</span>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-
-                  {(job.tech || job.note) && (
-                    <p
-                      style={{
-                        marginTop: '0.85rem',
-                        fontSize: '0.88rem',
-                        color: 'var(--ink-faint)',
-                        fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace',
-                      }}
-                    >
-                      {job.tech ?? job.note}
-                    </p>
-                  )}
-
-                  <div
-                    style={{
-                      marginTop: '2rem',
-                      height: 1,
-                      background: 'var(--border)',
-                    }}
-                  />
-                </article>
-              ))}
-            </div>
-          )}
-
-          {active === 'Projects' && (
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
-              {projects.map((p) => (
-                <article
-                  key={p.name}
-                  style={{
-                    border: '1px solid var(--border)',
-                    borderRadius: 6,
-                    padding: '1.25rem 1.4rem',
-                    transition: 'border-color 0.15s, box-shadow 0.15s',
-                    cursor: 'default',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--ink-faint)'
-                    e.currentTarget.style.boxShadow = '0 2px 16px rgba(0,0,0,0.06)'
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = 'var(--border)'
-                    e.currentTarget.style.boxShadow = 'none'
-                  }}
-                >
-                  <div className="flex items-start justify-between gap-4 flex-wrap mb-1">
-                    <h3
-                      style={{
-                        fontSize: '1.15rem',
-                        fontWeight: 600,
-                        color: 'var(--ink)',
-                        margin: 0,
-                      }}
-                    >
-                      {p.name}
-                    </h3>
-                    {p.badge && (
-                      <span
-                        style={{
-                          fontSize: '0.75rem',
-                          fontWeight: 700,
-                          letterSpacing: '0.06em',
-                          textTransform: 'uppercase',
-                          color: '#74540D',
-                          background: '#F9E2AF',
-                          border: '1px solid #F0D58B',
-                          borderRadius: 4,
-                          padding: '3px 8px',
-                        }}
-                      >
-                        {p.badge}
+                <div className="hz-project-art" aria-hidden="true">
+                  <div className="hz-art-top">
+                    <span>{String(index + 1).padStart(2, '0')}</span>
+                    {project.badge && (
+                      <span className={`hz-art-award${stampTone(project.badge)}`}>
+                        <small>Award</small>
+                        <strong>{project.badge}</strong>
                       </span>
                     )}
                   </div>
-
-                  <p
-                    style={{
-                      fontSize: '0.92rem',
-                      color: 'var(--ink-muted)',
-                      margin: '0 0 0.65rem',
-                    }}
-                  >
-                    {p.subtitle}
-                  </p>
-
-                  <p
-                    style={{
-                      fontSize: '0.98rem',
-                      lineHeight: 1.7,
-                      color: 'var(--ink-muted)',
-                      margin: '0 0 0.75rem',
-                    }}
-                  >
-                    {p.description}
-                  </p>
-
-                  {p.bullets && (
-                    <ul
-                      style={{
-                        margin: '0 0 0.9rem',
-                        padding: 0,
-                        listStyle: 'none',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        gap: '0.45rem',
-                      }}
-                    >
-                      {p.bullets.map((b) => (
-                        <li
-                          key={b}
-                          style={{
-                            fontSize: '0.95rem',
-                            lineHeight: 1.65,
-                            color: 'var(--ink-muted)',
-                            paddingLeft: '1rem',
-                            position: 'relative',
-                          }}
-                        >
-                          <span
-                            style={{
-                              position: 'absolute',
-                              left: 0,
-                              top: '0.55em',
-                              width: 4,
-                              height: 4,
-                              borderRadius: '50%',
-                              background: 'var(--ink-faint)',
-                              display: 'inline-block',
-                            }}
-                          />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
+                  {project.name === 'Store Signal' ? (
+                    <div className="hz-signal-visual">
+                      <div className="hz-signal-customer">
+                        <small>Customer profile / 017</small>
+                        <strong>$286<sup>.40</sup></strong>
+                        <span>monthly spend</span>
+                      </div>
+                      <div className="hz-signal-compare">
+                        <small>Spend compared to local average</small>
+                        <div><span>Customer</span><i className="is-customer" /></div>
+                        <div><span>Average</span><i className="is-average" /></div>
+                      </div>
+                      <div className="hz-signal-opportunities">
+                        <small>Best opportunities</small>
+                        <span>01 / Fiber upgrade</span>
+                        <span>02 / Mobile bundle</span>
+                        <span>03 / Smart home</span>
+                      </div>
+                    </div>
+                  ) : project.name === 'Pairs Trading Algorithm' ? (
+                    <div className="hz-pairs-visual">
+                      <div className="hz-pairs-legend">
+                        <span className="is-pep">Pepsi</span>
+                        <span className="is-ko">Coke</span>
+                        <i>Normalized history</i>
+                      </div>
+                      <svg viewBox="0 0 360 150" className="hz-pairs-chart" role="presentation">
+                        <line className="grid" x1="0" y1="28" x2="360" y2="28" />
+                        <line className="grid is-mean" x1="0" y1="78" x2="360" y2="78" />
+                        <line className="grid" x1="0" y1="128" x2="360" y2="128" />
+                        <polyline
+                          className="pep"
+                          fill="none"
+                          points="0,86 30,78 60,82 90,64 120,58 150,44 180,70 210,104 240,90 270,38 300,54 330,80 360,74"
+                        />
+                        <polyline
+                          className="ko"
+                          fill="none"
+                          points="0,92 30,84 60,88 90,76 120,72 150,62 180,78 210,110 240,98 270,54 300,66 330,86 360,82"
+                        />
+                        <g className="mark is-sell">
+                          <circle cx="150" cy="44" r="3.2" />
+                          <text x="150" y="34">Sell</text>
+                        </g>
+                        <g className="mark is-buy">
+                          <circle cx="210" cy="104" r="3.2" />
+                          <text x="210" y="122">Buy</text>
+                        </g>
+                        <g className="mark is-sell">
+                          <circle cx="270" cy="38" r="3.2" />
+                          <text x="270" y="28">Sell</text>
+                        </g>
+                      </svg>
+                    </div>
+                  ) : (
+                    <div className="hz-art-center">
+                      <small>{project.tech[0]}</small>
+                      <strong>{project.name}</strong>
+                      <div><i /><i /><i /><i /></div>
+                    </div>
                   )}
+                  {project.image && (
+                    <img className="hz-project-image" src={project.image} alt="" />
+                  )}
+                  {project.video && (
+                    <video
+                      className="hz-project-video"
+                      src={project.video}
+                      muted
+                      loop
+                      playsInline
+                      preload="metadata"
+                    />
+                  )}
+                </div>
+                <div className="hz-project-copy">
+                  <p className="hz-card-meta">{project.subtitle}</p>
+                  <h3>{project.name}</h3>
+                  <p>{project.description}</p>
+                  <ul>{project.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
+                  <code>{project.tech.join(' · ')}</code>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </main>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem' }}>
-                    {p.tech.map((t) => (
-                      <span
-                        key={t}
-                        style={{
-                          fontSize: '0.8rem',
-                          fontWeight: 500,
-                          color: 'var(--ink-muted)',
-                          background: 'var(--surface)',
-                          border: '1px solid var(--border)',
-                          borderRadius: 3,
-                          padding: '2px 8px',
-                          letterSpacing: '0.02em',
-                        }}
-                      >
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>
-          )}
+      <footer className="hz-footer">
+        <p>Hou Wai Yip © {new Date().getFullYear()}</p>
+        <div>
+          <a href={GITHUB} target="_blank" rel="noreferrer">GitHub</a>
+          <a href={LINKEDIN} target="_blank" rel="noreferrer">LinkedIn</a>
 
-        </main>
-
-        <footer
-          style={{
-            marginTop: '5rem',
-            paddingTop: '2rem',
-            borderTop: '1px solid var(--border)',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            gap: '1rem',
-          }}
-        >
-          <span style={{ fontSize: '0.85rem', color: 'var(--ink-faint)' }}>
-            Hou Wai Yip · {new Date().getFullYear()}
-          </span>
-          <a
-            href={`mailto:${EMAIL}`}
-            style={{
-              fontSize: '0.85rem',
-              color: 'var(--ink-muted)',
-              textDecoration: 'none',
-              borderBottom: '1px solid var(--ink-faint)',
-              paddingBottom: 1,
-              transition: 'color 0.15s, border-color 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.color = 'var(--accent)'
-              e.currentTarget.style.borderColor = 'var(--accent)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.color = 'var(--ink-muted)'
-              e.currentTarget.style.borderColor = 'var(--ink-faint)'
-            }}
-          >
-            {EMAIL}
-          </a>
-        </footer>
-      </div>
+        </div>
+      </footer>
     </div>
   )
 }
