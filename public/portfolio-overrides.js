@@ -65,12 +65,12 @@ function go(){var cards=document.querySelectorAll(".hz-project");if(!cards.lengt
       '\u{1F3C3} Running from my problems (literally)',
       '\u{1F3CB}\uFE0F Lifting heavy things and putting them back down'
     ];
-    var index=0;
+    var index=Math.floor(Math.random()*messages.length);
     label.textContent=messages[index];
     setInterval(function(){
       label.classList.add('is-swapping');
       setTimeout(function(){
-        index=(index+1)%messages.length;
+        index=(index+1+Math.floor(Math.random()*(messages.length-1)))%messages.length;
         label.textContent=messages[index];
         label.classList.remove('is-swapping');
       },220);
