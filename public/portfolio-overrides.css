@@ -624,3 +624,17 @@
   .hz-quote span{transition:none!important}
   .hz-quote span.is-swapping{transform:none!important}
 }
+
+/* Minimal hover treatment for the centered header motto. */
+.hz-page .hz-handle span{
+  cursor:default;
+  transition:background-color .2s ease,color .2s ease,box-shadow .2s ease!important;
+}
+.hz-page .hz-handle span:hover{
+  background:#111!important;
+  color:#fff!important;
+  box-shadow:0 3px 10px rgba(0,0,0,.1)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .hz-page .hz-handle span{transition:none!important}
+}
