@@ -590,3 +590,36 @@
   .hz-project:hover .hz-award-row.is-gold strong::after,
   .hz-project:hover .hz-award-row.is-silver strong::after{animation:none!important}
 }
+
+/* Recognition rows: slightly larger while preserving the editorial treatment. */
+.hz-award-row{
+  margin:1px 0 14px!important;
+  grid-template-columns:auto minmax(28px,1fr) auto!important;
+  gap:10px!important;
+}
+.hz-award-row small{
+  font-size:7px!important;
+  font-weight:500!important;
+  letter-spacing:.1em!important;
+}
+.hz-award-row strong,
+.hz-award-row.is-gold strong,
+.hz-award-row.is-silver strong,
+.hz-project:hover .hz-award-row.is-gold strong,
+.hz-project:hover .hz-award-row.is-silver strong{
+  font-size:8.25px!important;
+  font-weight:600!important;
+}
+
+/* Rotating top-left status. */
+.hz-quote span{
+  transition:opacity .2s ease,transform .2s ease!important;
+}
+.hz-quote span.is-swapping{
+  opacity:0!important;
+  transform:translateY(-3px)!important;
+}
+@media(prefers-reduced-motion:reduce){
+  .hz-quote span{transition:none!important}
+  .hz-quote span.is-swapping{transform:none!important}
+}

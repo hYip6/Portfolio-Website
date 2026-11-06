@@ -47,3 +47,32 @@ function go(){var cards=document.querySelectorAll(".hz-project");if(!cards.lengt
     if(row)row.classList.add("is-datathon-winner");
   });
 })();;
+
+/* Rotating top-left status */
+(function setupRotatingStatus(){
+  var attempts=0;
+  function setup(){
+    var label=document.querySelector('.hz-quote span');
+    if(!label){if(attempts++<100)setTimeout(setup,50);return}
+    if(label.dataset.rotatingStatus)return;
+    label.dataset.rotatingStatus='true';
+    var messages=[
+      '💻 Building useful software',
+      '♟️ Playing chess',
+      '🍳 Learning how to cook',
+      '📺 Watching Silo',
+      '🎧 Listening to Bruno Mars'
+    ];
+    var index=0;
+    label.textContent=messages[index];
+    setInterval(function(){
+      label.classList.add('is-swapping');
+      setTimeout(function(){
+        index=(index+1)%messages.length;
+        label.textContent=messages[index];
+        label.classList.remove('is-swapping');
+      },220);
+    },5200);
+  }
+  setup();
+})();
