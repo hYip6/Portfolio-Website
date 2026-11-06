@@ -61,7 +61,9 @@ function go(){var cards=document.querySelectorAll(".hz-project");if(!cards.lengt
       '\u265F\uFE0F Blundering pieces in chess',
       '\u{1F373} Attempting to become a better cook',
       '\u{1F4FA} Currently watching: Silo',
-      '\u{1F3A7} On repeat: Bruno Mars'
+      '\u{1F3A7} On repeat: Bruno Mars',
+      '\u{1F3C3} Running from my problems (literally)',
+      '\u{1F3CB}\uFE0F Lifting heavy things and putting them back down'
     ];
     var index=0;
     label.textContent=messages[index];
